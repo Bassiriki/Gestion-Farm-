@@ -1,0 +1,22 @@
+<section>
+  <div>
+    <h1>Tableau de bord</h1>
+    <p>Vue d'ensemble de votre exploitation agricole</p>
+  </div>
+
+  <select id="selection" (change)="onFermeSelect($event)">
+    @for(ferme of fermes; track $index){
+      <option [value]="ferme.id" >{{ferme.name}}</option>
+    }
+  </select>
+</section>
+<hr/>
+@if(ferme){
+  <section>
+    <h2>Ferme sélectionnée</h2>
+    <p>Nom de la ferme selectionnée : {{ferme.name}}</p>
+    <p>id de la ferme selectionnée : ferme n° {{ferme.id}}</p>
+  </section>
+
+  <app-container/>
+}
